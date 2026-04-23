@@ -598,6 +598,121 @@ A^{-1} \approx \begin{bmatrix}
 $$
 </div>
 
+<div>
+<h1>soal A</h1>
+Evaluasi Determinan Matriks<br>
+
+1. Matriks 2 X 2
+$$A = \begin{bmatrix} -7 & -5 \\ 1 & 4 \end{bmatrix}$$
+
+Kita gunakan Baris 1 untuk ekspansi:
+Elemen $$a_{11} = -7 : Minor M_{11} = 4$$
+Elemen $$a_{12} = -5 : Minor M_{12} = 1$$
+
+Perhitungan:
+$$\text{det}(A) = a_{11}(C_{11}) + a_{12}(C_{12})$$
+$$\text{det}(A) = (-7 \cdot (-1)^{1+1} \cdot 4) + (-5 \cdot (-1)^{1+2} \cdot 1)$$
+$$\text{det}(A) = (-7 \cdot 1 \cdot 4) + (-5 \cdot -1 \cdot 1)$$
+$$\text{det}(A) = -28 + 5$$
+$$\text{det}(A) = -23$$
+
+---<br>
+
+2. Matriks 3 X 3
+$$A = \begin{bmatrix} 0 & 2 & -3 \\ 1 & -2 & -1 \\ 0 & 0 & 1 \end{bmatrix}$$
+
+Agar lebih mudah, kita pilih Baris 3 karena memiliki banyak angka nol.<br>
+Elemen $$a_{31} = 0: (Hasil pasti 0)$$
+Elemen $$a_{32} = 0: (Hasil pasti 0)$$
+Elemen $$a_{33} = 1:$$ 
+Submatriksnya adalah $$\begin{bmatrix} 0 & 2 \\ 1 & -2 \end{bmatrix}$$
+
+Perhitungan:
+$$\text{det}(A) = 0 + 0 + (a_{33} \cdot (-1)^{3+3} \cdot M_{33})$$
+$$\text{det}(A) = 1 \cdot (1) \cdot ((0 \cdot -2) - (2 \cdot 1))$$
+$$\text{det}(A) = 1 \cdot (0 - 2)$$
+$$\text{det}(A) = -2$$
+
+---<br>
+
+3. Matriks 4 X 4
+$$A = \begin{bmatrix} 1 & -3 & 1 & 1 \\ -3 & 1 & 1 & 1 \\ 1 & 1 & -3 & 1 \\ 1 & 1 & 1 & -3 \end{bmatrix}$$
+
+Kita gunakan Baris 1. Determinan dihitung dengan:
+$$\text{det}(A) = 1(M_{11}) - (-3)(M_{12}) + 1(M_{13}) - 1(M_{14})$$
+
+Langkah mencari Minor:
+1.  $$M_{11}$$: det $$\begin{bmatrix} 1 & 1 & 1 \\ 1 & -3 & 1 \\ 1 & 1 & -3 \end{bmatrix} = 1(9-1) - 1(-3-1) + 1(1-(-3)) = 8 + 4 + 4 = 16$$
+2.  $$M_{12}$$: det $$\begin{bmatrix} -3 & 1 & 1 \\ 1 & -3 & 1 \\ 1 & 1 & -3 \end{bmatrix} = -3(9-1) - 1(-3-1) + 1(1-(-3)) = -24 + 4 + 4 = -16$$
+3.  $$M_{13}$$: det $$\begin{bmatrix} -3 & 1 & 1 \\ 1 & -3 & 1 \\ 1 & 1 & -3 \end{bmatrix} = -16$$ (Sama dengan $$M_{12}$$)
+4.  $$M_{14}$$: det $$\begin{bmatrix} -3 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & -3 \end{bmatrix} = -3(-3-1) - 1(-3-1) + 1(1-1) = 12 + 4 + 0 = 16$$
+
+Total Akhir:
+$$\text{det}(A) = 1(16) + 3(-16) + 1(-16) - 1(16)$$
+$$\text{det}(A) = 16 - 48 - 16 - 16$$
+$$\text{det}(A) = -64$$
+
+<h1>soal B</h1>
+Menghitung Invers Matriks dengan Matriks Adjoin<br>
+4. Matriks 2 X 2
+$$A = \begin{bmatrix} -7 & -5 \\ 1 & 4 \end{bmatrix}$$
+
+Langkah 1: Determinan<br>
+Dari soal sebelumnya, kita tahu $$\text{det}(A) = -23$$
+
+Langkah 2: Adjoin (Tukar posisi diagonal utama, ganti tanda diagonal samping)
+$$\text{adj}(A) = \begin{bmatrix} 4 & 5 \\ -1 & -7 \end{bmatrix}$$
+
+Langkah 3: Invers
+$$A^{-1} = \frac{1}{-23} \begin{bmatrix} 4 & 5 \\ -1 & -7 \end{bmatrix} = \begin{bmatrix} -4/23 & -5/23 \\ 1/23 & 7/23 \end{bmatrix}$$
+
+---<br>
+5. Matriks 3 X 3
+$$A = \begin{bmatrix} 0 & 2 & -3 \\ 1 & -2 & -1 \\ 0 & 0 & 1 \end{bmatrix}$$
+
+Langkah 1: Determinan
+Dari soal sebelumnya, $$\text{det}(A) = -2$$
+
+Langkah 2: Matriks Kofaktor $$(C_{ij})$$
+$$C_{11} = +|(-2)(1) - (0)(-1)| = -2$$
+$$C_{12} = -|(1)(1) - (0)(-1)| = -1$$
+$$C_{13} = +|(1)(0) - (0)(-2)| = 0$$
+$$C_{21} = -|(2)(1) - (0)(-3)| = -2$$
+$$C_{22} = +|(0)(1) - (0)(-3)| = 0$$
+$$C_{23} = -|(0)(0) - (0)(2)| = 0$$
+$$C_{31} = +|(2)(-1) - (-2)(-3)| = -2 - 6 = -8$$
+$$C_{32} = -|(0)(-1) - (1)(-3)| = -(3) = -3$$
+$$C_{33} = +|(0)(-2) - (1)(2)| = -2$$
+
+Langkah 3: Adjoin (Transpose Kofaktor)
+$$\text{adj}(A) = \begin{bmatrix} -2 & -2 & -8 \\ -1 & 0 & -3 \\ 0 & 0 & -2 \end{bmatrix}$$
+
+Langkah 4: Invers
+$$A^{-1} = \frac{1}{-2} \begin{bmatrix} -2 & -2 & -8 \\ -1 & 0 & -3 \\ 0 & 0 & -2 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 4 \\ 0.5 & 0 & 1.5 \\ 0 & 0 & 1 \end{bmatrix}$$
+
+---<br>
+
+6. Matriks 4 X 4
+$$A = \begin{bmatrix} 1 & -3 & 1 & 1 \\ -3 & 1 & 1 & 1 \\ 1 & 1 & -3 & 1 \\ 1 & 1 & 1 & -3 \end{bmatrix}$$
+
+Langkah 1: Determinan<br>
+Dari soal sebelumnya, $$\text{det}(A) = -64$$.
+
+Langkah 2: Adjoin<br>
+Karena matriks ini simetris, matriks kofaktornya juga akan simetris. Berdasarkan perhitungan minor sebelumnya:
+$$C_{11} = 16$$
+$$C_{12} = -(-16) = 16$$
+$$C_{13} = 16$$
+$$C_{14} = -16$$
+
+Karena pola angka dalam matriks seragam (angka 1 dan -3 yang bergeser), nilai kofaktor lainnya akan mengikuti pola yang sama:
+$$\text{adj}(A) = \begin{bmatrix} 16 & 16 & 16 & -16 \\ 16 & 16 & -16 & 16 \\ 16 & -16 & 16 & 16 \\ -16 & 16 & 16 & 16 \end{bmatrix}$$
+(Catatan: Semua elemen dibagi 16 nantinya)<br>
+
+Langkah 3: Invers
+$$A^{-1} = \frac{1}{-64} \text{adj}(A)$$
+$$A^{-1} = \begin{bmatrix} -1/4 & -1/4 & -1/4 & 1/4 \\ -1/4 & -1/4 & 1/4 & -1/4 \\ -1/4 & 1/4 & -1/4 & -1/4 \\ 1/4 & -1/4 & -1/4 & -1/4 \end{bmatrix}$$
+</div>
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
