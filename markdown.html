@@ -386,6 +386,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-awal-m0">Matriks Awal (M0)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-eselon-baris-eselon">Matriks Eselon Baris (Eselon)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-akhir-rref">Solusi Akhir (RREF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks">Penyelesaian Invers Matriks 4x4 dengan Metode Gauss-Jordan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-uts">Evaluasi UTS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-tranformasi">Matriks Tranformasi</a></li>
 </ul>
             </nav>
         </div>
@@ -527,7 +530,8 @@ document.write(`
 </section>
 </section>
 
-<h2>Penyelesaian Invers Matriks 4x4 dengan Metode Gauss-Jordan</h2>
+<section id="invers-matriks">
+<h2>Penyelesaian Invers Matriks 4x4 dengan Metode Gauss-Jordan<a class="headerlink" href="#invers-matriks" title="Link to this heading">#</a></h2>
 
 Berikut adalah langkah-langkah sistematis untuk mencari invers dari matriks A berdasarkan sistem persamaan linear yang diberikan.
 
@@ -597,6 +601,10 @@ A^{-1} \approx \begin{bmatrix}
 \end{bmatrix}
 $$
 </div>
+</section>
+
+<section id="evaluasi-uts">
+<h2>Evaluasi UTS<a class="headerlink" href="#evaluasi-uts" title="Link to this heading">#</a></h2>
 
 <div>
 <h1>soal A</h1>
@@ -713,6 +721,64 @@ Langkah 3: Invers
 $$A^{-1} = \frac{1}{-64} \text{adj}(A)$$
 $$A^{-1} = \begin{bmatrix} -1/4 & -1/4 & -1/4 & 1/4 \\ -1/4 & -1/4 & 1/4 & -1/4 \\ -1/4 & 1/4 & -1/4 & -1/4 \\ 1/4 & -1/4 & -1/4 & -1/4 \end{bmatrix}$$
 </div>
+</section>
+
+<section id="matriks-tranformasi">
+<h2>Penyelesaian Matriks Tranformasi<a class="headerlink" href="#matriks-tranformasi" title="Link to this heading">#</a></h2>
+<div>
+<h1>Matriks Transformasi (Translasi)</h1>
+
+Berdasarkan koordinat titik pada grafik:<br>
+- A = (2, 3)<br>
+- B = (2, 1)<br>
+- C = (4, 1)<br>
+- D = (2, 4)<br>
+- E = (2, 0)<br>
+- F = (4, 0)<br>
+
+Transformasi dari satu titik ke titik lainnya di bawah ini merupakan Translasi (pergeseran). Rumus umum matriks translasi adalah:<br>
+$$T = \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}$$
+
+---
+
+<b>1. Transformasi A ke B</b><br>
+Titik Asal: $$A(2, 3)$$
+Titik Tujuan: $$B(2, 1)$$
+- Perhitungan: $$\Delta x = 2 - 2 = 0$$
+    $$\Delta y = 1 - 3 = -2$$
+- Matriks: $$T_{AB} = \begin{pmatrix} 0 \\ -2 \end{pmatrix}$$
+
+<b>2. Transformasi B ke C</b><br>
+Titik Asal: $$B(2, 1)$$
+Titik Tujuan: $$C(4, 1)$$
+- Perhitungan: $$\Delta x = 4 - 2 = 2$$
+    $$\Delta y = 1 - 1 = 0$$
+- Matriks: $$T_{BC} = \begin{pmatrix} 2 \\ 0 \end{pmatrix}$$
+
+<b>3. Transformasi D ke E</b><br>
+Titik Asal: $$D(2, 4)$$
+Titik Tujuan: $$E(2, 0)$$
+- Perhitungan: $$\Delta x = 2 - 2 = 0$$
+    $$\Delta y = 0 - 4 = -4$$
+- Matriks: $$T_{DE} = \begin{pmatrix} 0 \\ -4 \end{pmatrix}$$
+
+<b>4. Transformasi E ke F</b><br>
+Titik Asal: $$E(2, 0)$$
+Titik Tujuan: $$F(4, 0)$$
+- Perhitungan: $$\Delta x = 4 - 2 = 2$$
+    $$\Delta y = 0 - 0 = 0$$
+- Matriks: $$T_{EF} = \begin{pmatrix} 2 \\ 0 \end{pmatrix}$$
+
+---
+
+<h6>Ringkasan</h6>
+| Pergerakan | Keterangan     |  Matriks Kolom |<br>
+| A -> B     | Turun 2 satuan | \begin{pmatrix} 0 \\ -2 \end{pmatrix}
+| B -> C     | Kanan 2 satuan | \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+| D -> E     | Turun 4 satuan | \begin{pmatrix} 0 \\ -4 \end{pmatrix}
+| E -> F     | Kanan 2 satuan | \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+</div>
+</section>
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
