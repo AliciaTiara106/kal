@@ -782,8 +782,116 @@ Titik Tujuan: $$F(4, 0)$$
 </div>
 </section>
 <section>
+<div class="highlight-s notranslate"><div class="highlight">
+  <h3>Matriks Transportasi</h3>
+<pre>  
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
 
-![Animasi Transformasi](transformasi_sumbu_x.gif)
+# titik dari gambar
+points = {
+    "A": (2, 3), "B": (2, 4), "C": (3, 4), "D": (3, 3),
+    "E": (2, -3), "F": (3, -3), "G": (2, -4), "H": (3, -4),
+    "I": (2, 2), "J": (3, 2), "K": (2, 1), "L": (3, 1),
+    "M": (2, -1), "N": (3, -1), "O": (2, -2), "P": (3, -2)
+}
+
+# urutan garis penghubung
+garis = [
+    ("B", "C"),
+    ("A", "D"),
+    ("I", "J"),
+    ("K", "L"),
+    ("M", "N"),
+    ("O", "P"),
+    ("E", "F"),
+    ("H", "G"),
+
+    ("B", "A"),
+    ("A", "I"),
+    ("I", "K"),
+
+    ("C", "D"),
+    ("D", "J"),
+    ("J", "L"),
+
+    ("M", "O"),
+    ("O", "E"),
+
+    ("N", "P"),
+    ("P", "F")
+]
+
+# membuat figure
+fig, ax = plt.subplots(figsize=(6, 8))
+
+# fungsi animasi
+def update(frame):
+
+    ax.clear()
+
+    # transformasi mendekati sumbu x
+    scale_y = 1 - frame / 100
+
+    posisi_baru = {}
+
+    # gambar titik
+    for nama, (x, y) in points.items():
+
+        y_baru = y * scale_y
+
+        posisi_baru[nama] = (x, y_baru)
+
+        ax.scatter(x, y_baru, color="blue", s=100)
+
+        ax.text(
+            x + 0.05,
+            y_baru + 0.05,
+            nama,
+            fontsize=12
+        )
+
+    # gambar garis
+    for p1, p2 in garis:
+
+        x1, y1 = posisi_baru[p1]
+        x2, y2 = posisi_baru[p2]
+
+        ax.plot(
+            [x1, x2],
+            [y1, y2],
+            color="red",
+            linewidth=2
+        )
+
+    # sumbu
+    ax.axhline(0, color="black", linewidth=2)
+    ax.axvline(0, color="black", linewidth=2)
+
+    # batas grafik
+    ax.set_xlim(0, 5)
+    ax.set_ylim(-5, 5)
+
+    ax.grid(True)
+
+    ax.set_title("Transformasi Titik Mendekati Sumbu X")
+
+# membuat animasi
+ani = animation.FuncAnimation(
+    fig,
+    update,
+    frames=101,
+    interval=50,
+    repeat=True
+)
+
+# tampilkan animasi di Google Colab
+HTML(ani.to_jshtml())
+</pre></div>
+</div>
+
+<img src="transformasi_sumbu_x.gif" width="400" alt="Animasi Bergerak">
 
 </section>
     <script type="text/x-thebe-config">
