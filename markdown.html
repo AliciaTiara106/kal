@@ -389,6 +389,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks">Penyelesaian Invers Matriks 4x4 dengan Metode Gauss-Jordan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-uts">Evaluasi UTS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-tranformasi">Matriks Tranformasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-matriks">Dekomposisi Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SVD">Singular Value Decomposition (SVD)</a></li>
 </ul>
             </nav>
         </div>
@@ -892,13 +894,39 @@ HTML(ani.to_jshtml())
 </div>
 
 <img src="transformasi_sumbu_x.gif" width="400" alt="Animasi Bergerak">
-<h1>Dekomposisi Matriks</h1>
+
+<section id="dekomposisi-matriks">
+<h2>Dekomposisi Matriks<a class="headerlink" href="#dekomposisi-matriks" title="Link to this heading">#</a></h2>
+<div>
 <img src="1.jpg" width="400" alt=" ">
 <img src="2.jpg" width="400" alt=" ">
 <img src="3.jpg" width="400" alt=" ">
 <img src="4.jpg" width="400" alt=" ">
 <img src="5.jpg" width="400" alt=" ">
 <img src="6.jpg" width="400" alt=" ">
+</div>
+</section>
+
+<section id="dekomposisi-matriks">
+<h2>Singular Value Decomposition (SVD)<a class="headerlink" href="#SVD" title="Link to this heading">#</a></h2>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+sagecell.makeSagecell({inputLocation: '.sage'});
+</script>
+
+<div class="sage">
+import numpy as np
+A = np.array([[1,2,3],[0,1,4],[5,6,0]])
+U, S, VT = np.linalg.svd(A)
+print("U =")
+print(U)
+print("S =")
+print(S)
+print("VT =")
+print(VT)
+
+</div>
+</section>
 </section>
     <script type="text/x-thebe-config">
     {
@@ -970,6 +998,11 @@ HTML(ani.to_jshtml())
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-awal-m0">Matriks Awal (M0)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-eselon-baris-eselon">Matriks Eselon Baris (Eselon)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-akhir-rref">Solusi Akhir (RREF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks">Penyelesaian Invers Matriks 4x4 dengan Metode Gauss-Jordan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-uts">Evaluasi UTS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-tranformasi">Matriks Tranformasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-matriks">Dekomposisi Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SVD">Singular Value Decomposition (SVD)</a></li>
 </ul>
   </nav></div>
 
