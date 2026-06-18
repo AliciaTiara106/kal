@@ -391,6 +391,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-tranformasi">Matriks Tranformasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-matriks">Dekomposisi Matriks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SVD">Singular Value Decomposition (SVD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-uas">Evaluasi UAS</a></li>
 </ul>
             </nav>
         </div>
@@ -937,6 +938,338 @@ print(hasil)
 </div>
 </div>
 </section>
+<section id="evaluasi-uas">
+<h2>Evaluasi UAS<a class="headerlink" href="#evaluasi-uas" title="Link to this heading">#</a></h2>
+<h2>A. Soal Determinan Matriks 3×3</h2>
+<h3>Soal 1</h3>
+Hitung determinan dari matriks berikut:
+$$A=
+\begin{bmatrix}
+2 & 1 & 3 \\
+0 & 4 & 5 \\
+1 & 2 & 1
+\end{bmatrix}$$
+
+
+$$
+\left[ \begin{array}{ccc|cc} 
+2 & 1 & 3 & 2 & 1 \\ 
+0 & 4 & 5 & 0 & 4 \\ 
+1 & 2 & 1 & 1 & 2 \\ 
+\end{array} \right]
+$$
+
+<p>1. Hitung Perkalian Diagonal Turun (Kiri Atas ke Kanan Bawah)</p>
+Diagonal 1: $$2 \times 4 \times 1 = 8$$
+Diagonal 2: $$1 \times 5 \times 1 = 5$$
+Diagonal 3: $$3 \times 0 \times 2 = 0$$
+Total Kelompok Turun = $$8 + 5 + 0 = 13$$
+
+<p>2. Hitung Perkalian Diagonal Naik (Kiri Bawah ke Kanan Atas)</p>
+Diagonal 1: $$1 \times 4 \times 3 = 12$$
+Diagonal 2: $$2 \times 5 \times 2 = 20$$
+Diagonal 3: $$1 \times 0 \times 1 = 0$$
+Total Kelompok Naik = $$12 + 20 + 0 = 32$$
+Rumus Akhir DeterminanUntuk mencari determinannya, kita tinggal mengurangkan hasil Total Turun dengan Total Naik:
+$$\text{Determinan } A = (\text{Total Turun}) - (\text{Total Naik})$$
+$$\text{Determinan } A = 13 - 32$$$$\text{Determinan } A = -19$$
+Jadi, nilai determinan dari matriks A adalah -19.
+
+<h3>Soal 2</h3>
+Tentukan nilai determinan matriks:
+$$B=
+\begin{bmatrix}
+3 & 2 & 1 \\
+1 & 0 & 4 \\
+2 & 5 & 1
+\end{bmatrix}$$
+
+$$
+\left[ \begin{array}{ccc|cc} 
+3 & 2 & 1 & 3 & 2 \\ 
+1 & 0 & 4 & 1 & 0 \\ 
+2 & 5 & 1 & 2 & 5 \\ 
+\end{array} \right]
+$$
+
+<p>1. Garis Diagonal Turun (Kiri Atas ke Kanan Bawah) -> Hasilnya Dijumlahkan</p>
+<p>Kita kalikan angka-angka yang terkena garis miring turun:</p>
+Jalur 1: $$3 \times 0 \times 1 = 0$$
+Jalur 2: $$2 \times 4 \times 2 = 16$$
+Jalur 3: $$1 \times 1 \times 5 = 5$$
+Jumlah hasil turun = $$0 + 16 + 5 = 21$$ 
+
+<p>2. Garis Diagonal Naik (Kiri Bawah ke Kanan Atas) -> Hasilnya Dikurangi</p>
+<p>Sekarang kita kalikan angka-angka yang terkena garis miring naik:</p>
+Jalur 1: $$2 \times 0 \times 1 = 0$$
+Jalur 2: $$5 \times 4 \times 3 = 60$$
+Jalur 3: $$1 \times 1 \times 2 = 2$$
+Jumlah hasil naik = $$0 + 60 + 2 = 62$$
+
+Hasil Akhir Sekarang tinggal kita kurang: (Hasil Turun) - (Hasil Naik)
+$$\text{Determinan } B = 21 - 62$$$$\text{Determinan } B = -41$$
+Jadi, nilai determinan dari matriks B adalah -41.
+
+<h3>Soal 3</h3>
+Jika
+$$C=
+\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+1 & 1 & 1
+\end{bmatrix}$$
+
+<p>tentukan det (C) dan jelaskan apakah matriks tersebut singular atau tidak.</p>
+<p>Coba perhatikan baik-baik Baris 1 dan Baris 2:</p>
+Baris 1: $$1 \quad 2 \quad 3$$
+Baris 2: $$2 \quad 4 \quad 6$$
+Kalau kita lihat polanya, angka di Baris 2 itu adalah dua kali lipat dari angka di Baris 1 (2 X Baris 1). Di dalam aturan matriks, kalau ada satu baris yang merupakan kelipatan dari baris lain (saling bergantung linier), maka nilai determinannya pasti otomatis 0.
+
+$$
+\left[ \begin{array}{ccc|cc} 
+1 & 2 & 3 & 1 & 2 \\ 
+2 & 4 & 6 & 2 & 4 \\ 
+1 & 1 & 1 & 1 & 1 \\ 
+\end{array} \right]
+$$
+
+1. Diagonal Turun
+$$1 \times 4 \times 1 = 4$$
+$$2 \times 6 \times 1 = 12$$
+$$3 \times 2 \times 1 = 6$$
+Total Turun = $$4 + 12 + 6 = 22$$
+
+2. Diagonal Naik
+$$1 \times 4 \times 3 = 12$$
+$$1 \times 6 \times 1 = 6$$
+$$1 \times 2 \times 2 = 4$$
+Total Naik = $$12 + 6 + 4 = 22$$
+Hasil Akhir
+$$\text{Determinan } C = (\text{Total Turun}) - (\text{Total Naik})$$
+$$\text{Determinan } C = 22 - 22$$
+$$\text{Determinan } C = 0$$
+<p>Jadi, nilai determinan dari matriks C adalah 0.</p>
+Jawabannya adalah Iya, matriks C adalah matriks singular, karena determinannya sama dengan 0
+
+<h2>B. Soal Dekomposisi Matriks (LU Decomposition)</h2>
+<h3>Soal 4</h3>
+Lakukan dekomposisi LU terhadap matriks:
+$$A=
+\begin{bmatrix}
+2 & 4 & 2 \\
+1 & 5 & 2 \\
+1 & 2 & 4
+\end{bmatrix}$$
+
+<p>dengan bentuk: A = LU</p>
+di mana L adalah matriks segitiga bawah dan U adalah matriks segitiga atas.
+
+Kita siapkan dulu cetakan untuk L dan U:
+$$L = \begin{pmatrix} 1 & 0 & 0 \\ \color{blue}{\text{?}} & 1 & 0 \\ \color{blue}{\text{?}} & \color{blue}{\text{?}} & 1 \end{pmatrix}, \quad U = \begin{pmatrix} 2 & 4 & 2 \\ 0 & \color{red}{\text{?}} & \color{red}{\text{?}} \\ 0 & 0 & \color{red}{\text{?}} \end{pmatrix}$$
+
+Rumus: $$B_2 - \mathbf{\frac{1}{2}} B_1$$
+Hitungan Baris 2 yang baru: $$1 - (\frac{1}{2} \times 2) = 0$$
+$$5 - (\frac{1}{2} \times 4) = 3$$
+$$2 - (\frac{1}{2} \times 2) = 1$$
+
+Rumus: $$B_3 - \mathbf{\frac{1}{2}} B_1$$
+Hitungan Baris 3 yang baru:$$1 - (\frac{1}{2} \times 2) = 0$$
+$$2 - (\frac{1}{2} \times 4) = 0$$
+$$4 - (\frac{1}{2} \times 2) = 3$$
+
+Sekarang kondisi matriks kita menjadi:
+$$U = \begin{pmatrix} 2 & 4 & 2 \\ 0 & 3 & 1 \\ 0 & 0 & 3 \end{pmatrix}, \quad L = \begin{pmatrix} 1 & 0 & 0 \\ \mathbf{\frac{1}{2}} & 1 & 0 \\ \mathbf{\frac{1}{2}} & \color{blue}{\text{?}} & 1 \end{pmatrix}$$
+
+dari hasil hitungan di Langkah 1, angka di Baris 3 Kolom 2 sudah otomatis menjadi 0.
+Artinya, kita tidak perlu melakukan operasi baris lagi untuk baris ketiga.
+
+Hasil Akhir
+Dari langkah-langkah di atas, kita dapatkan hasil dekomposisi $$A = LU$$ sebagai berikut:
+Matriks L (Segitiga Bawah):
+$$L = \begin{pmatrix} 1 & 0 & 0 \\ \frac{1}{2} & 1 & 0 \\ \frac{1}{2} & 0 & 1 \end{pmatrix}$$
+Matriks U (Segitiga Atas):$$U = \begin{pmatrix} 2 & 4 & 2 \\ 0 & 3 & 1 \\ 0 & 0 & 3 \end{pmatrix}$$
+Cara Cek: Jika kamu kalikan kembali matriks L dan U di atas (L X U), hasilnya akan tepat kembali menjadi matriks A semula.
+
+<h3>Soal 5</h3>
+Tentukan matriks L dan U dari:
+$$B=
+\begin{bmatrix}
+1 & 2 & 1 \\
+2 & 5 & 3 \\
+4 & 10 & 8
+\end{bmatrix}$$
+menggunakan metode eliminasi Gauss.
+
+$$L = \begin{pmatrix} 1 & 0 & 0 \\ \color{blue}{\text{?}} & 1 & 0 \\ \color{blue}{\text{?}} & \color{blue}{\text{?}} & 1 \end{pmatrix}, \quad U = \begin{pmatrix} 1 & 2 & 1 \\ 0 & \color{red}{\text{?}} & \color{red}{\text{?}} \\ 0 & 0 & \color{red}{\text{?}} \end{pmatrix}$$
+
+Rumus: $$B_2 - \mathbf{2} B_1$$
+Hitungan Baris 2 yang baru:$$2 - (2 \times 1) = 0$$
+$$5 - (2 \times 2) = 1$$
+$$3 - (2 \times 1) = 1$$$
+
+Rumus: $$B_3 - \mathbf{4} B_1$$
+Hitungan Baris 3 yang baru:$$4 - (4 \times 1) = 0$$
+$$10 - (4 \times 2) = 2$$
+$$8 - (4 \times 1) = 4$$
+
+$$U_{sementara} = \begin{pmatrix} 1 & 2 & 1 \\ 0 & 1 & 1 \\ 0 & 2 & 4 \end{pmatrix}, \quad L = \begin{pmatrix} 1 & 0 & 0 \\ \mathbf{2} & 1 & 0 \\ \mathbf{4} & \color{blue}{\text{?}} & 1 \end{pmatrix}$$
+
+Rumus: $$B_3 - \mathbf{2} B_2$$
+Hitungan Baris 3 yang baru:$$0 - (2 \times 0) = 0$$
+$$2 - (2 \times 1) = 0$$
+$$4 - (2 \times 1) = 2$$
+
+Matriks L (Segitiga Bawah):$$L = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 4 & 2 & 1 \end{pmatrix}$$Matriks U (Segitiga Atas):$$U = \begin{pmatrix} 1 & 2 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 2 \end{pmatrix}$$
+
+<h3>Soal 6</h3>
+Dekomposisikan matriks berikut menjadi LU:
+$$C=
+\begin{bmatrix}
+4 & 2 & 0 \\
+2 & 5 & 1 \\
+0 & 1 & 3
+\end{bmatrix}$$
+
+$$L = \begin{pmatrix} 1 & 0 & 0 \\ \color{blue}{\text{?}} & 1 & 0 \\ \color{blue}{\text{?}} & \color{blue}{\text{?}} & 1 \end{pmatrix}, \quad U = \begin{pmatrix} 4 & 2 & 0 \\ 0 & \color{red}{\text{?}} & \color{red}{\text{?}} \\ 0 & 0 & \color{red}{\text{?}} \end{pmatrix}$$
+(Catatan: Baris pertama matriks U langsung sama dengan baris pertama matriks C).
+
+Rumus: $$B_2 - \mathbf{\frac{2}{4}} B_1 \rightarrow B_2 - \mathbf{\frac{1}{2}} B_1$$
+Hitungan Baris 2 yang baru:$$2 - (\frac{1}{2} \times 4) = 0$$
+$$5 - (\frac{1}{2} \times 2) = 4$$
+$$1 - (\frac{1}{2} \times 0) = 1$$
+
+$$U_{sementara} = \begin{pmatrix} 4 & 2 & 0 \\ 0 & 4 & 1 \\ 0 & 1 & 3 \end{pmatrix}, \quad L = \begin{pmatrix} 1 & 0 & 0 \\ \mathbf{\frac{1}{2}} & 1 & 0 \\ \mathbf{0} & \color{blue}{\text{?}} & 1 \end{pmatrix}$$
+
+Rumus: $$B_3 - \mathbf{\frac{1}{4}} B_2$$
+Hitungan Baris 3 yang baru:$$0 - (\frac{1}{4} \times 0) = 0$$
+$$1 - (\frac{1}{4} \times 4) = 0$$
+$$3 - (\frac{1}{4} \times 1) = 3 - 0.25 = \frac{11}{4}$$ (atau 2.75)
+
+Matriks L (Segitiga Bawah):$$L = \begin{pmatrix} 1 & 0 & 0 \\ \frac{1}{2} & 1 & 0 \\ 0 & \frac{1}{4} & 1 \end{pmatrix}$$Matriks U (Segitiga Atas):$$U = \begin{pmatrix} 4 & 2 & 0 \\ 0 & 4 & 1 \\ 0 & 0 & \frac{11}{4} \end{pmatrix}$$
+(Jika ditulis dalam bentuk desimal, baris ketiga matriks U adalah 0  0  2.75).
+
+<h2>C. Soal Invers Matriks 3×3</h2>
+<h3>Soal 7</h3>
+Tentukan invers dari matriks:
+$$A=
+\begin{bmatrix}
+1 & 2 & 1 \\
+0 & 1 & 1 \\
+2 & 3 & 4
+\end{bmatrix}$$
+
+menggunakan metode adjoin atau eliminasi Gauss-Jordan.
+
+Rumus utama invers matriks adalah:$$A^{-1} = \frac{1}{\text{det}(A)} \times \text{Adj}(A)$$
+
+$$
+\left[ \begin{array}{ccc|cc} 
+1 & 2 & 1 & 1 & 2 \\ 
+0 & 1 & 1 & 0 & 1 \\ 
+2 & 3 & 4 & 2 & 3 \\ 
+\end{array} \right]
+$$
+
+Diagonal Turun:$$(1 \times 1 \times 4) + (2 \times 1 \times 2) + (1 \times 0 \times 3) = 4 + 4 + 0 = 8$$
+Diagonal Naik:$$(2 \times 1 \times 1) + (3 \times 1 \times 1) + (4 \times 0 \times 2) = 2 + 3 + 0 = 5$$
+$$\text{det}(A) = 8 - 5 = 3$$
+
+Cari Matriks Kofaktor, Kita tutup baris dan kolom untuk setiap posisi, lalu hitung determinan kecilnya (2 X 2) beserta tandanya (+ atau -):
+$$K_{11} = + \begin{vmatrix} 1 & 1 \\ 3 & 4 \end{vmatrix} = (4 - 3) = 1$$
+$$K_{12} = - \begin{vmatrix} 0 & 1 \\ 2 & 4 \end{vmatrix} = - (0 - 2) = 2$$
+$$K_{13} = + \begin{vmatrix} 0 & 1 \\ 2 & 3 \end{vmatrix} = (0 - 2) = -2$$
+$$K_{21} = - \begin{vmatrix} 2 & 1 \\ 3 & 4 \end{vmatrix} = - (8 - 3) = -5$$
+$$K_{22} = + \begin{vmatrix} 1 & 1 \\ 2 & 4 \end{vmatrix} = (4 - 2) = 2$$
+$$K_{23} = - \begin{vmatrix} 1 & 2 \\ 2 & 3 \end{vmatrix} = - (3 - 4) = 1$$
+$$K_{31} = + \begin{vmatrix} 2 & 1 \\ 1 & 1 \end{vmatrix} = (2 - 1) = 1$$
+$$K_{32} = - \begin{vmatrix} 1 & 1 \\ 0 & 1 \end{vmatrix} = - (1 - 0) = -1$$
+$$K_{33} = + \begin{vmatrix} 1 & 2 \\ 0 & 1 \end{vmatrix} = (1 - 0) = 1$$
+Matriks Kofaktor $$= \begin{pmatrix} 1 & 2 & -2 \\ -5 & 2 & 1 \\ 1 & -1 & 1 \end{pmatrix}$$
+
+Cari Adjoin (Transpose dari Kofaktor)
+$$\text{Adj}(A) = \begin{pmatrix} 1 & -5 & 1 \\ 2 & 2 & -1 \\ -2 & 1 & 1 \end{pmatrix}$$
+
+Hitung Inversnya
+$$A^{-1} = \frac{1}{3} \begin{pmatrix} 1 & -5 & 1 \\ 2 & 2 & -1 \\ -2 & 1 & 1 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} & -\frac{5}{3} & \frac{1}{3} \\ \frac{2}{3} & \frac{2}{3} & -\frac{1}{3} \\ -\frac{2}{3} & \frac{1}{3} & \frac{1}{3} \end{pmatrix}$$
+
+<h3>Soal 8</h3>
+Carilah invers matriks:
+$$B=
+\begin{bmatrix}
+2 & 1 & 0 \\
+1 & 2 & 1 \\
+0 & 1 & 2
+\end{bmatrix}$$
+
+$$
+\left[ \begin{array}{ccc|cc} 
+2 & 1 & 0 & 2 & 1 \\ 
+1 & 2 & 1 & 1 & 2 \\ 
+0 & 1 & 2 & 0 & 1 \\ 
+\end{array} \right]
+$$
+
+Diagonal Turun: $$(2 \times 2 \times 2) + (1 \times 1 \times 0) + (0 \times 1 \times 1) = 8 + 0 + 0 = 8$$
+Diagonal Naik: $$(0 \times 2 \times 0) + (1 \times 1 \times 2) + (2 \times 1 \times 1) = 0 + 2 + 2 = 4$$
+$$\text{det}(B) = 8 - 4 = 4$$
+
+Cari Matriks Kofaktor
+$$K_{11} = + (4 - 1) = 3$$
+$$K_{12} = - (2 - 0) = -2$$
+$$K_{13} = + (1 - 0) = 1$$
+$$K_{21} = - (2 - 0) = -2$$
+$$K_{22} = + (4 - 0) = 4$$
+$$K_{23} = - (2 - 0) = -2$$
+$$K_{31} = + (1 - 0) = 1$$
+$$K_{32} = - (2 - 0) = -2$$
+$$K_{33} = + (4 - 1) = 3$$
+Matriks Kofaktor $$= \begin{pmatrix} 3 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 3 \end{pmatrix}$$
+
+Cari Adjoin
+$$\text{Adj}(B) = \begin{pmatrix} 3 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 3 \end{pmatrix}$$
+
+Hitung Inversnya
+$$B^{-1} = \frac{1}{4} \begin{pmatrix} 3 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 3 \end{pmatrix} = \begin{pmatrix} \frac{3}{4} & -\frac{1}{2} & \frac{1}{4} \\ -\frac{1}{2} & 1 & -\frac{1}{2} \\ \frac{1}{4} & -\frac{1}{2} & \frac{3}{4} \end{pmatrix}$$
+
+<h3>Soal 9</h3>
+Diketahui:
+$$C=
+\begin{bmatrix}
+3 & 0 & 2 \\
+2 & 0 & -2 \\
+0 & 1 & 1
+\end{bmatrix}$$
+Tentukan C^{-1}.
+
+$$
+\left[ \begin{array}{ccc|cc} 
+3 & 0 & 2 & 3 & 0 \\ 
+2 & 0 & -2 & 2 & 0 \\ 
+0 & 1 & 1 & 0 & 1 \\ 
+\end{array} \right]
+$$
+
+Diagonal Turun: $$(3 \times 0 \times 1) + (0 \times -2 \times 0) + (2 \times 2 \times 1) = 0 + 0 + 4 = 4$$
+Diagonal Naik: $$(0 \times 0 \times 2) + (1 \times -2 \times 3) + (1 \times 2 \times 0) = 0 - 6 + 0 = -6$$
+$$\text{det}(C) = 4 - (-6) = 4 + 6 = 10$$
+
+Cari Matriks Kofaktor
+$$K_{11} = + (0 - (-2)) = 2$$
+$$K_{12} = - (2 - 0) = -2$$
+$$K_{13} = + (2 - 0) = 2$$
+$$K_{21} = - (0 - 2) = 2$$
+$$K_{22} = + (3 - 0) = 3$$
+$$K_{23} = - (3 - 0) = -3$$
+$$K_{31} = + (0 - 0) = 0$$
+$$K_{32} = - (-6 - 4) = 10$$
+$$K_{33} = + (0 - 0) = 0$$
+Matriks Kofaktor $$= \begin{pmatrix} 2 & -2 & 2 \\ 2 & 3 & -3 \\ 0 & 10 & 0 \end{pmatrix}$$
+
+Cari Adjoin
+$$\text{Adj}(C) = \begin{pmatrix} 2 & 2 & 0 \\ -2 & 3 & 10 \\ 2 & -3 & 0 \end{pmatrix}$$
+
+Hitung Inversnya
+$$C^{-1} = \frac{1}{10} \begin{pmatrix} 2 & 2 & 0 \\ -2 & 3 & 10 \\ 2 & -3 & 0 \end{pmatrix} = \begin{pmatrix} \frac{1}{5} & \frac{1}{5} & 0 \\ -\frac{1}{5} & \frac{3}{10} & 1 \\ \frac{1}{5} & -\frac{3}{10} & 0 \end{pmatrix}$$
 </section>
     <script type="text/x-thebe-config">
     {
@@ -1013,6 +1346,7 @@ print(hasil)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-tranformasi">Matriks Tranformasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-matriks">Dekomposisi Matriks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SVD">Singular Value Decomposition (SVD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-uas">Evaluasi UAS</a></li>
 </ul>
   </nav></div>
 
